@@ -1,0 +1,16 @@
+#list{
+    margin-top: 10%;
+    border-radius: 50px;
+    background-color: wheat;
+    width: 40%;
+    height: auto;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.5s;
+    transition-property: height;
+    color: gray;
+    font-size: 24px;
+}
