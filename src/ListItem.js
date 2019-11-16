@@ -16,8 +16,11 @@ class AddButtons extends React.Component {
             this.setState({ name: "Done" });
             this.props.changeable(true);
         } else {
+            console.log(this.props.value)
+            if(this.props.value.trim()){
             this.setState({ name: "Edit" });
             this.props.changeable(false);
+            }
         }
     }
     render() {
@@ -28,7 +31,7 @@ class AddButtons extends React.Component {
                     color="default"
                     fullWidth
                 >
-                    <Button onClick={this.changeinput} value="edit">{this.state.name}</Button>
+                    <Button onClick={this.changeinput}>{this.state.name}</Button>
                     <Button onClick={() => { this.props.onDelete(this.props.index) }}>Delete</Button>
                 </ButtonGroup>
             )

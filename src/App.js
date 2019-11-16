@@ -29,10 +29,14 @@ class App extends React.Component {
     this.setState({ Arr: [...newArr] });
   }
   changeinput = (e, i) => {
+    
+    console.log("e.target.value.trim()",e.target.value.trim())
+ 
     const newArr = [...this.state.Arr];
     newArr[i].value = e.target.value;
     newArr[i].done = false;
     this.setState({ Arr: [...newArr] });
+    
   }
   render() {
     return (
