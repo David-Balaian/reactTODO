@@ -18,10 +18,10 @@ export default class HeaderInput extends React.Component {
         const { onAdd } = this.props;
         return (
             <span style={{ width: "30%", display: "flex", flexDirection: "column", alignItems: "center",marginBottom: "20px" }}>
-                <Typography variant="h3" color="primary" component="h2">
+                <Typography variant="h3" color="primary" component="h2" >
                 TO DO LIST
                 </Typography>
-                <TextField autoFocus color="primary" variant="outlined" fullWidth label="Add Item" value={this.state.item} onChange={(e) => { this.handleChange(e.target) }} />
+                <TextField autoFocus margin = "normal" color="primary" variant="outlined" fullWidth label="Add Item" value={this.state.item} onChange={(e) => { this.handleChange(e.target) }} />
                 <Button variant="contained" color="primary"  fullWidth onClick={() => {this.setState({item: ""}); return onAdd(this.state.item) }}>Add</Button>
             </span>
         )
