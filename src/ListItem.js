@@ -16,11 +16,9 @@ class AddButtons extends React.Component {
             this.setState({ name: "Done" });
             this.props.changeable(true);
         } else {
-            console.log(this.props.value)
-            if(this.props.value.trim()){
+            if(!this.props.targetvalue.trim()){return}
             this.setState({ name: "Edit" });
             this.props.changeable(false);
-            }
         }
     }
     render() {
@@ -48,6 +46,7 @@ export default class ListItem extends React.Component {
             done: false,
             changeable: false,
             inputValue: this.props.item.value,
+            targetvalue: "",
         }
     }
     changeType = (bool) => {
@@ -65,7 +64,7 @@ export default class ListItem extends React.Component {
                             color="primary"
                             variant="outlined"
                             value={this.props.item.value}
-                            onChange={(e)=>{this.props.changeinput(e,this.props.index)}} />
+                            onChange={(e)=>{this.setState({targetvalue: e.target.value}); this.props.changeinput(e,this.props.index)}} />
                         :
                         <Button
                             fullWidth
@@ -75,6 +74,7 @@ export default class ListItem extends React.Component {
                         >{this.props.item.value}</Button>}
                 <span>
                     <AddButtons 
+                        targetvalue={this.state.targetvalue}
                         value={this.state.inputValue} 
                         onDelete={this.props.onDelete} 
                         index={this.props.index} 
